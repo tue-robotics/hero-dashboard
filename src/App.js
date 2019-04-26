@@ -10,17 +10,17 @@ import Battery from './Battery';
 import './App.css';
 
 class App extends Component {
-  
+
   render() {
     return (
       <div className="App">
         <Container>
           <Row>
-            <div class="box">
+            <div className="box">
               <Col>
                 <Indicator />
               </Col>
-            </div>              
+            </div>
             <Col >
               HERO
               <Battery topic='battery_state/hero1' />
@@ -29,7 +29,7 @@ class App extends Component {
               LAPTOP
               <Battery topic='battery_state/hero2' />
             </Col>
-          </Row>        
+          </Row>
         </Container>
       </div>
     );
