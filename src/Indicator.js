@@ -6,14 +6,12 @@ import Button from 'react-bootstrap/Button';
 
 import './App.css';
 
-console.log(ros);
-
 class Indicator extends Component {
     constructor(props) {
         super(props);
         this.topic = new ROSLIB.Topic({
             ros: ros,
-            name: '/hero/runstop_button',
+            name: 'runstop_button',
             messageType: 'std_msgs/Bool',
         });
     }
@@ -33,15 +31,17 @@ class Indicator extends Component {
         })
     }
     render() {
-        let value = <Button variant='danger'><i className="fas fa-power-off"></i></Button>;
+        var type;
         if (this.state.data) {
-            value = <Button variant='success'><i className="fas fa-power-off"></i></Button>;
+            type = 'danger';
+        } else {
+            type = 'success';
         }
 
         return (
             <div className="Indicator">
-                {value}
-      </div>
+                <Button variant={type}><i className="fas fa-power-off"></i></Button>
+            </div>
         );
     }
 }

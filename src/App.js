@@ -21,11 +21,11 @@ class App extends Component {
             </Col>
             <Col xs="3">
               HERO
-              <Battery topic='/hero/battery_state' />
+              <Battery topic='battery_state/hero1' />
             </Col>
             <Col xs="3">
               LAPTOP
-              <Battery topic='/hero/laptop_battery_state' />
+              <Battery topic='battery_state/hero2' />
             </Col>
           </Row>        
         </Container>

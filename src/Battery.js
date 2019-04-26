@@ -15,12 +15,13 @@ class Battery extends Component {
     this.topic = new ROSLIB.Topic({
       ros: ros,
       name: props.topic,
-      messageType: 'std_msgs/String',
+      messageType: 'sensor_msgs/BatteryState',
     });
   }
 
   state = {
-    data: '35',
+    percentage: 50,
+    type: 'info'
   }
   componentDidMount() {
     this.topic.subscribe(this.handleMessage);
@@ -29,23 +30,24 @@ class Battery extends Component {
     this.topic.unsubscribe(this.handleMessage);
   }
   handleMessage = (msg) => {
+    var type;
+    var percentage = Math.round(msg.percentage * 100)
+    if (percentage > 40) {
+      type = 'success';
+    } else if (percentage > 20) {
+      type = 'warning';
+    } else {
+      type = 'danger';
+    }
     this.setState({
-      data: msg.data,
+      percentage: percentage,
+      type: type
     })
   }
   render() {
-    let value = <ProgressBar variant="success" now={this.state.data} label={`${this.state.data}%`}/>;
-    if (this.state.data < 10) {
-      value = <ProgressBar variant="danger" now={this.state.data} label={`${this.state.data}%`}/>;
-    } else if (this.state.data < 50) {
-      value = <ProgressBar variant="warning" now={this.state.data} label={`${this.state.data}%`}/>;
-    } else {
-      value = <ProgressBar variant="success" now={this.state.data} label={`${this.state.data}%`}/>;
-    }
-
     return (
       <div className="Battery">
-        {value}
+        <ProgressBar variant={this.state.type} now={this.state.percentage} label={`${this.state.percentage}%`}/>
       </div>
     );
   }
