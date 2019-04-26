@@ -6,10 +6,6 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 
 import './App.css';
 
-//var ros = new ROSLIB.Ros({
-//  url: 'ws://localhost:9090',
-//});
-
 class Battery extends Component {
   constructor(props) {
     super(props);
