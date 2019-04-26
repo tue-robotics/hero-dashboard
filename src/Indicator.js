@@ -40,7 +40,7 @@ class Indicator extends Component {
 
         return (
             <div className="Indicator">
-                <Button variant={type}><i className="fas fa-power-off"></i></Button>
+                <Button variant={type} disabled><i className="fas fa-power-off"></i></Button>
             </div>
         );
     }
