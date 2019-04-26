@@ -14,6 +14,7 @@ deploy:
     secure: J49WAQALh8sa7Gc+t2xKzGGRfIzvUO7Hlh4PuJK4oK1zCMXIDEoku2rjcLNo1ni/ZR6e9pBmJ19Pe9sPihqAYmhC2Wagg6Ql/FTbc7nCqIBj8c7yow5AjTJgt+g+J5sxIlCIlhtP0H00LeOy2S/eV3ZuPeuvjv6mxo/I0uR7GvwU9o0ggcNYZM40g+OddR/f1DowuwODYdWHaJaRHicMG0FpR+AMH8boSsNDLRtHTzHJKRh1rBh7W2sGLQyfbp83QVXZiYBO0pZtxGssaoVCUpH6f2wakB7MXO8H5oITkXdfxAtv5Gb9y1wzeMl16zSFyvHY20PCod6nnGsqudtcQpZziZqQ531arcAnE/uyCVpkeKFWDlrAyAQgou/fEQENXGZs2EsDKh1/wfGE4oe5QWlzctLsn5i+myL2ZN+LqJ56ypzSqSh/8wqGMxUj+jTUce/PT//fOjfd8szyt92JN4rs6JQmDh4BZVVF1vDj/8zbmwb8erZLHWaWAD3MelmMtoou3Gie1l2XxCJuRvYtRvHgb7nef02/2Mkel42etK75SfBuOjRtKy/86I/A6qluRU788dHMTneldELHWu5Xj/IEsR+41m7j0P6HRlb5f6+jDF2S07B7xBjY6gmlXk+8CvuCd5aJeZAk81I13WTncjum/9TaMWg3yvhUwdIkaA8=
   file_glob: true
   file: hero-dashboard-linux-x64-*.tar.gz
+  skip_cleanup: true
   on:
     repo: tue-robotics/hero-dashboard
     tags: true
