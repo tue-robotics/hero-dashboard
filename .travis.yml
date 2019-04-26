@@ -7,7 +7,7 @@ script:
 - npm run build
 before_deploy:
 - npm run deploy-linux
-- tar -pzcvf hero-dashboard-linux-x64-$TRAVIS_TAG.tar.gz -C dist/hero-dashboard-linux-x64/
+- tar -pzcvf hero-dashboard-linux-x64-$TRAVIS_TAG.tar.gz -C dist/hero-dashboard-linux-x64/ .
 deploy:
   provider: releases
   api_key:
