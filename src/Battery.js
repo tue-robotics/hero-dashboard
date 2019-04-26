@@ -1,13 +1,14 @@
 import ROSLIB from 'roslib';
+import ros from './ros';
 
 import React, { Component } from 'react';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
 import './App.css';
 
-var ros = new ROSLIB.Ros({
-  url: 'ws://localhost:9090',
-});
+//var ros = new ROSLIB.Ros({
+//  url: 'ws://localhost:9090',
+//});
 
 class Battery extends Component {
   constructor(props) {
