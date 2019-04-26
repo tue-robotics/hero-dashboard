@@ -17,7 +17,7 @@ class Indicator extends Component {
     }
 
     state = {
-        data: false,
+        data: true,
     }
     componentDidMount() {
         this.topic.subscribe(this.handleMessage);
