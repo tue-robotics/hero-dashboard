@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+- '10'
+install:
+- npm install
+script:
+- npm run build
+
+before deploy:
+  - npm run deploy-linux
+  - tar -pzcvf hero-dashboard-linux-x64-$TRAVIS_TAG.tar.gz -C dist/hero-dashboard-linux-x64/
+
+deploy:
+  provider: releases
+  api_key:
+    secure: W54Oa7xps+yMVd8wUQ/GCrgemcipZ8WTFL/lPGCZeLsqzA6hZ2CzevH/CigrZTmO0eQFIUfZKALJR7EzR9IbsSbIX4b6rgdpRZW6TX2bM0zIncX0JPyXxgnM2WIA5MiL2o7c00U83mqFyOd/BHEeSX9CP0TTL7rEa9HfWNxpo2U=
+  file_glob: true
+  file: hero-dashboard-linux-x64-*.tar.gz
+  on:
+    repo: tue-robotics/hero-dashboard
+    tags: true
+    all_branches: true
