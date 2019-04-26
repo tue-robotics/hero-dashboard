@@ -14,16 +14,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Container fluid="true">
+        <Container>
           <Row>
-            <Col md="auto">
-              <Indicator />
-            </Col>
-            <Col xs="3">
+            <div class="box">
+              <Col>
+                <Indicator />
+              </Col>
+            </div>              
+            <Col >
               HERO
               <Battery topic='battery_state/hero1' />
             </Col>
-            <Col xs="3">
+            <Col >
               LAPTOP
               <Battery topic='battery_state/hero2' />
             </Col>
