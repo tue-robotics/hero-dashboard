@@ -1,5 +1,6 @@
 import ROSLIB from 'roslib';
 import ros from './ros';
+
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 
@@ -39,7 +40,7 @@ class Indicator extends Component {
 
         return (
             <div className="Indicator">
-                Indicator: {value}
+                {value}
       </div>
         );
     }

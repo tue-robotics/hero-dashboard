@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
 import ROSLIB from 'roslib';
+
+import React, { Component } from 'react';
 import ProgressBar from 'react-bootstrap/ProgressBar';
+
 import './App.css';
 
 var ros = new ROSLIB.Ros({
   url: 'ws://localhost:9090',
 });
-
-
 
 class Battery extends Component {
   constructor(props) {
@@ -20,7 +20,7 @@ class Battery extends Component {
   }
 
   state = {
-    data: '',
+    data: '100',
   }
   componentDidMount() {
     this.topic.subscribe(this.handleMessage);
@@ -36,8 +36,7 @@ class Battery extends Component {
   render() {
     return (
       <div className="Battery">
-        Topic: {this.props.topic}, data: {this.state.data}
-        <ProgressBar now={this.state.data} />
+        <ProgressBar variant="success" now={this.state.data} label={`${this.state.data}%`}/>
       </div>
     );
   }
