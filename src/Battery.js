@@ -20,7 +20,7 @@ class Battery extends Component {
   }
 
   state = {
-    data: '100',
+    data: '35',
   }
   componentDidMount() {
     this.topic.subscribe(this.handleMessage);
@@ -34,9 +34,18 @@ class Battery extends Component {
     })
   }
   render() {
+    let value = <ProgressBar variant="success" now={this.state.data} label={`${this.state.data}%`}/>;
+    if (this.state.data < 10) {
+      value = <ProgressBar variant="danger" now={this.state.data} label={`${this.state.data}%`}/>;
+    } else if (this.state.data < 50) {
+      value = <ProgressBar variant="warning" now={this.state.data} label={`${this.state.data}%`}/>;
+    } else {
+      value = <ProgressBar variant="success" now={this.state.data} label={`${this.state.data}%`}/>;
+    }
+
     return (
       <div className="Battery">
-        <ProgressBar variant="success" now={this.state.data} label={`${this.state.data}%`}/>
+        {value}
       </div>
     );
   }
