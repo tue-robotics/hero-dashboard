@@ -1,5 +1,4 @@
 import ROSLIB from 'roslib';
-import ros from './ros';
 
 import React, { Component } from 'react';
 import ProgressBar from 'react-bootstrap/ProgressBar';
@@ -10,7 +9,7 @@ class Battery extends Component {
   constructor(props) {
     super(props);
     this.topic = new ROSLIB.Topic({
-      ros: ros,
+      ros: props.ros,
       name: props.topic,
       messageType: 'sensor_msgs/BatteryState',
     });

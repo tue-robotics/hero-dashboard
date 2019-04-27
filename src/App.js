@@ -8,8 +8,13 @@ import Indicator from './Indicator';
 import Battery from './Battery';
 
 import './App.css';
+import AutoRos from './ros';
 
 class App extends Component {
+  constructor() {
+    super()
+    AutoRos.connect();
+  }
 
   render() {
     return (
@@ -18,16 +23,16 @@ class App extends Component {
           <Row>
             <div className="box">
               <Col>
-                <Indicator />
+                <Indicator ros={AutoRos.ros} />
               </Col>
             </div>
             <Col >
               HERO
-              <Battery topic='battery_state/hero1' />
+              <Battery topic='battery_state/hero1' ros={AutoRos.ros} />
             </Col>
             <Col >
               LAPTOP
-              <Battery topic='battery_state/hero2' />
+              <Battery topic='battery_state/hero2' ros={AutoRos.ros} />
             </Col>
           </Row>
         </Container>

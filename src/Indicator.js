@@ -1,5 +1,4 @@
 import ROSLIB from 'roslib';
-import ros from './ros';
 
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
@@ -10,7 +9,7 @@ class Indicator extends Component {
     constructor(props) {
         super(props);
         this.topic = new ROSLIB.Topic({
-            ros: ros,
+            ros: props.ros,
             name: 'runstop_button',
             messageType: 'std_msgs/Bool',
         });
