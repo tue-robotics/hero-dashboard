@@ -1,31 +1,41 @@
 import React, { Component } from 'react';
-import Button from 'react-bootstrap/Button';
-import Battery from './Battery';
-import ROSLIB from 'roslib';
-import ros from './ros';
-import './App.css';
-import Indicator from './Indicator';
 
-var exampleTopic = new ROSLIB.Topic({
-  ros: ros,
-  name: '/com/endpoint/example',
-  messageType: 'std_msgs/String',
-});
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+
+import Indicator from './Indicator';
+import Battery from './Battery';
+
+import './App.css';
+import AutoRos from './ros';
 
 class App extends Component {
-  onClick = (e) => {
-    var msg = new ROSLIB.Message({
-      data: 'some string',
-    });
-    exampleTopic.publish(msg);
+  constructor() {
+    super()
+    AutoRos.connect('ws://hero1.local:9090');
   }
+
   render() {
     return (
       <div className="App">
-        <Battery topic='/hero/battery_state'/>
-        <Battery topic='/hero/laptop_battery_state'/>
-        <Button onClick={this.onClick}>Publish</Button>
-        <Indicator />
+        <Container>
+          <Row>
+            <div className="box">
+              <Col>
+                <Indicator ros={AutoRos.ros} />
+              </Col>
+            </div>
+            <Col >
+              HERO
+              <Battery topic='battery_state/hero1' ros={AutoRos.ros} />
+            </Col>
+            <Col >
+              LAPTOP
+              <Battery topic='battery_state/hero2' ros={AutoRos.ros} />
+            </Col>
+          </Row>
+        </Container>
       </div>
     );
   }

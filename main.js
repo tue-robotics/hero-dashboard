@@ -8,8 +8,10 @@ let mainWindow
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 400,
+    height: 60,
+    resizable: false,
+    alwaysOnTop: true,
     webPreferences: {
       nodeIntegration: true
     }
@@ -19,7 +21,7 @@ function createWindow () {
   mainWindow.loadFile('build/index.html')
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  //mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {

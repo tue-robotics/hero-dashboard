@@ -1,24 +1,22 @@
 import ROSLIB from 'roslib';
-import ros from './ros';
+
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 
 import './App.css';
 
-console.log(ros);
-
 class Indicator extends Component {
     constructor(props) {
         super(props);
         this.topic = new ROSLIB.Topic({
-            ros: ros,
-            name: '/hero/runstop_button',
+            ros: props.ros,
+            name: 'runstop_button',
             messageType: 'std_msgs/Bool',
         });
     }
 
     state = {
-        data: false,
+        data: true,
     }
     componentDidMount() {
         this.topic.subscribe(this.handleMessage);
@@ -32,15 +30,17 @@ class Indicator extends Component {
         })
     }
     render() {
-        let value = <Button variant='danger'><i className="fas fa-power-off"></i></Button>;
+        var type;
         if (this.state.data) {
-            value = <Button variant='success'><i className="fas fa-power-off"></i></Button>;
+            type = 'danger';
+        } else {
+            type = 'success';
         }
 
         return (
             <div className="Indicator">
-                Indicator: {value}
-      </div>
+                <Button variant={type} disabled><i className="fas fa-power-off"></i></Button>
+            </div>
         );
     }
 }

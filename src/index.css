@@ -3,3 +3,24 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.row{
+  align-items: center;
+  justify-content: center;
+}
+
+.col div {
+  width: 100px;
+  height: 25px;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box div {
+  width: 100px;
+  height: 30px;
+}

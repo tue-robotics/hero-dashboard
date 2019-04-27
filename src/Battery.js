@@ -1,26 +1,23 @@
-import React, { Component } from 'react';
 import ROSLIB from 'roslib';
+
+import React, { Component } from 'react';
 import ProgressBar from 'react-bootstrap/ProgressBar';
+
 import './App.css';
-
-var ros = new ROSLIB.Ros({
-  url: 'ws://localhost:9090',
-});
-
-
 
 class Battery extends Component {
   constructor(props) {
     super(props);
     this.topic = new ROSLIB.Topic({
-      ros: ros,
+      ros: props.ros,
       name: props.topic,
-      messageType: 'std_msgs/String',
+      messageType: 'sensor_msgs/BatteryState',
     });
   }
 
   state = {
-    data: '',
+    percentage: 50,
+    type: 'info'
   }
   componentDidMount() {
     this.topic.subscribe(this.handleMessage);
@@ -29,15 +26,24 @@ class Battery extends Component {
     this.topic.unsubscribe(this.handleMessage);
   }
   handleMessage = (msg) => {
+    var type;
+    var percentage = Math.round(msg.percentage * 100)
+    if (percentage > 40) {
+      type = 'success';
+    } else if (percentage > 20) {
+      type = 'warning';
+    } else {
+      type = 'danger';
+    }
     this.setState({
-      data: msg.data,
+      percentage: percentage,
+      type: type
     })
   }
   render() {
     return (
       <div className="Battery">
-        Topic: {this.props.topic}, data: {this.state.data}
-        <ProgressBar now={this.state.data} />
+        <ProgressBar variant={this.state.type} now={this.state.percentage} label={`${this.state.percentage}%`}/>
       </div>
     );
   }
