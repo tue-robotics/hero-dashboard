@@ -13,7 +13,7 @@ import AutoRos from './ros';
 class App extends Component {
   constructor() {
     super()
-    AutoRos.connect();
+    AutoRos.connect('ws://hero1.local:9090');
   }
 
   render() {
