@@ -26,14 +26,7 @@ class App extends Component {
                 <Indicator ros={AutoRos.ros} />
               </Col>
             </div>
-            <Col >
-              HERO
-              <Battery topic='battery_state/hero1' ros={AutoRos.ros} />
-            </Col>
-            <Col >
-              LAPTOP
-              <Battery topic='battery_state/hero2' ros={AutoRos.ros} />
-            </Col>
+            <Battery topic='battery' ros={AutoRos.ros} />
           </Row>
         </Container>
       </div>

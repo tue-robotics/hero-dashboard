@@ -2,6 +2,8 @@ import ROSLIB from 'roslib';
 
 import React, { Component } from 'react';
 import ProgressBar from 'react-bootstrap/ProgressBar';
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 import './App.css';
 
@@ -16,8 +18,7 @@ class Battery extends Component {
   }
 
   state = {
-    percentage: 50,
-    type: 'info'
+    batteries: {}
   }
   componentDidMount() {
     this.topic.subscribe(this.handleMessage);
@@ -35,18 +36,36 @@ class Battery extends Component {
     } else {
       type = 'danger';
     }
-    this.setState({
+    let batteries = this.state.batteries
+    batteries[msg.location] = {
       percentage: percentage,
       type: type
+    }
+
+    this.setState({
+      batteries: batteries
     })
   }
   render() {
-    return (
-      <div className="Battery">
-        <ProgressBar variant={this.state.type} now={this.state.percentage} label={`${this.state.percentage}%`}/>
-      </div>
-    );
-  }
+      return (
+         <Row>
+           {Object.keys(this.state.batteries).map( (value,index) => {
+              return (
+                <Col key={value}>
+                  {value}
+                  <div className="Battery" key={value}>
+                    <ProgressBar
+                      variant={this.state.batteries[value].type}
+                      now={this.state.batteries[value].percentage}
+                      label={`${this.state.batteries[value].percentage}%`}
+                    />
+                  </div>
+                </Col>
+              )
+            })}
+         </Row>
+      );
+   }
 }
 
 export default Battery;
