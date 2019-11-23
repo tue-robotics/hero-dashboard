@@ -28,7 +28,7 @@ class Battery extends Component {
   }
   handleMessage = (msg) => {
     var type;
-    var percentage = Math.round(msg.percentage * 100)
+    var percentage = parseInt(msg.percentage)
     if (percentage > 40) {
       type = 'success';
     } else if (percentage > 20) {
@@ -41,9 +41,13 @@ class Battery extends Component {
       percentage: percentage,
       type: type
     }
+    var ordered = {};
+    Object.keys(batteries).sort().forEach(function(key) {
+      ordered[key] = batteries[key];
+    })
 
     this.setState({
-      batteries: batteries
+      batteries: ordered
     })
   }
   render() {
