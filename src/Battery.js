@@ -1,7 +1,7 @@
 import ROSLIB from 'roslib';
 
 import React, { Component } from 'react';
-import ProgressBar from 'react-bootstrap/ProgressBar';
+import { Progress } from 'reactstrap';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
@@ -58,11 +58,14 @@ class Battery extends Component {
                 <Col key={value}>
                   {value}
                   <div className="Battery" key={value}>
-                    <ProgressBar
-                      variant={this.state.batteries[value].type}
-                      now={this.state.batteries[value].percentage}
-                      label={`${this.state.batteries[value].percentage}%`}
-                    />
+                    <Progress
+                      color={this.state.batteries[value].type}
+                      value={this.state.batteries[value].percentage}
+                      style={{'background-color': '#d0d0d0', 'position': 'relative'}} >
+                      <span style={{'position': 'absolute', 'display': 'block', 'width': '100%'}} >
+                        <b>{`${this.state.batteries[value].percentage}%`}</b>
+                      </span>
+                    </Progress>
                   </div>
                 </Col>
               )
