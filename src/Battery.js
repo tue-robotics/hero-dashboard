@@ -27,8 +27,8 @@ class Battery extends Component {
     this.topic.unsubscribe(this.handleMessage);
   }
   handleMessage = (msg) => {
-    var type;
-    var percentage = Math.round((msg.percentage)
+    var type = 'info';
+    var percentage = Math.round(msg.percentage)
     if (percentage > 40) {
       type = 'success';
     } else if (percentage > 20) {
