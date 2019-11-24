@@ -15,8 +15,12 @@ class App extends Component {
     super()
     const remote = window.require("electron").remote;
     const argv = remote.process.argv;
-    const host = argv[argv.length - 1];
-    const url = `ws://${host}:9090`;
+    const index = argv.length - 1;
+    var url;
+    if (index > 0) {
+      const host = argv[argv.length - 1];
+      url = `ws://${host}:9090`;
+    }
     AutoRos.connect(url);
   }
 
