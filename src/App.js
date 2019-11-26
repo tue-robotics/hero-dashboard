@@ -13,7 +13,15 @@ import AutoRos from './ros';
 class App extends Component {
   constructor() {
     super()
-    AutoRos.connect('ws://hero1.local:9090');
+    const remote = window.require("electron").remote;
+    const argv = remote.process.argv;
+    const index = argv.length - 1;
+    var url;
+    if (index > 0) {
+      const host = argv[argv.length - 1];
+      url = `ws://${host}:9090`;
+    }
+    AutoRos.connect(url);
   }
 
   render() {
@@ -26,14 +34,7 @@ class App extends Component {
                 <Indicator ros={AutoRos.ros} />
               </Col>
             </div>
-            <Col >
-              HERO
-              <Battery topic='battery_state/hero1' ros={AutoRos.ros} />
-            </Col>
-            <Col >
-              LAPTOP
-              <Battery topic='battery_state/hero2' ros={AutoRos.ros} />
-            </Col>
+            <Battery topic='battery' ros={AutoRos.ros} />
           </Row>
         </Container>
       </div>

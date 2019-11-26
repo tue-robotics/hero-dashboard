@@ -1,7 +1,9 @@
 import ROSLIB from 'roslib';
 
 import React, { Component } from 'react';
-import ProgressBar from 'react-bootstrap/ProgressBar';
+import { Progress } from 'reactstrap';
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 import './App.css';
 
@@ -16,8 +18,7 @@ class Battery extends Component {
   }
 
   state = {
-    percentage: 50,
-    type: 'info'
+    batteries: {}
   }
   componentDidMount() {
     this.topic.subscribe(this.handleMessage);
@@ -26,8 +27,8 @@ class Battery extends Component {
     this.topic.unsubscribe(this.handleMessage);
   }
   handleMessage = (msg) => {
-    var type;
-    var percentage = Math.round(msg.percentage * 100)
+    var type = 'info';
+    var percentage = Math.round(msg.percentage)
     if (percentage > 40) {
       type = 'success';
     } else if (percentage > 20) {
@@ -35,18 +36,43 @@ class Battery extends Component {
     } else {
       type = 'danger';
     }
-    this.setState({
+    let batteries = this.state.batteries
+    batteries[msg.location] = {
       percentage: percentage,
       type: type
+    }
+    var ordered = {};
+    Object.keys(batteries).sort().forEach(function(key) {
+      ordered[key] = batteries[key];
+    })
+
+    this.setState({
+      batteries: ordered
     })
   }
   render() {
-    return (
-      <div className="Battery">
-        <ProgressBar variant={this.state.type} now={this.state.percentage} label={`${this.state.percentage}%`}/>
-      </div>
-    );
-  }
+      return (
+         <Row>
+           {Object.keys(this.state.batteries).map( (value,index) => {
+              return (
+                <Col key={value}>
+                  {value}
+                  <div className="Battery" key={value}>
+                    <Progress
+                      color={this.state.batteries[value].type}
+                      value={this.state.batteries[value].percentage}
+                      style={{'background-color': '#d0d0d0', 'position': 'relative'}} >
+                      <span style={{'position': 'absolute', 'display': 'block', 'width': '100%'}} >
+                        <b>{`${this.state.batteries[value].percentage}%`}</b>
+                      </span>
+                    </Progress>
+                  </div>
+                </Col>
+              )
+            })}
+         </Row>
+      );
+   }
 }
 
 export default Battery;
