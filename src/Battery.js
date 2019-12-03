@@ -28,7 +28,7 @@ class Battery extends Component {
   }
   handleMessage = (msg) => {
     var type = 'info';
-    var percentage = Math.round(msg.percentage)
+    var percentage = Math.round(msg.percentage*100)
     if (percentage > 40) {
       type = 'success';
     } else if (percentage > 20) {
