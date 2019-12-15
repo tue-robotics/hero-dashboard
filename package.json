@@ -16,16 +16,29 @@
     "roslib": "^1.0.1"
   },
   "devDependencies": {
+    "dependency-check": "^4.1.0",
     "electron": "^4.1.4",
-    "electron-packager": "^13.0.0"
+    "electron-packager": "^13.0.0",
+    "rimraf": "^3.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
+    "clean": "rimraf dist/",
+    "deps": "npm run deps:missing && npm run deps:extra",
+    "deps:missing": "dependency-check . --missing",
+    "deps:extra": "dependency-check . --extra --no-dev",
+    "prebuild": "npm run clean",
     "build": "react-scripts build",
+    "postbuild": "npm run deps",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "electron": "electron .",
-    "deploy-linux": "electron-packager . hero-dashboard --overwrite --asar=true --platform=linux --arch=x64 ---prune=true --out=dist"
+    "deploy-linux": "electron-packager . hero-dashboard --overwrite --asar=true --platform=linux --arch=x64 ---prune=true --out=dist",
+    "version": "npm run build",
+    "patch": "npm version patch && npm publish",
+    "minor": "npm version minor && npm publish",
+    "major": "npm version major  && npm publish",
+    "postpublish": "git push && git push --tags"
   },
   "homepage": "."
 }
