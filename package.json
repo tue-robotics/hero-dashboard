@@ -2,6 +2,12 @@
   "name": "hero-dashboard",
   "version": "0.3.1",
   "private": true,
+  "repository": "tue-robotics/hero-dashboard",
+  "author": {
+    "name": "Matthijs van der Burgh",
+    "email": "MatthijsBurgh@outlook.com",
+    "url": "https://github.com/MatthijsBurgh"
+  },
   "main": "main.js",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.8.1",
