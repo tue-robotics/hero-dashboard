@@ -18,7 +18,7 @@ class App extends Component {
     const index = argv.length - 1;
     var url;
     if (index > 0) {
-      const host = argv[argv.length - 1];
+      const host = argv[index];
       url = `ws://${host}:9090`;
     }
     AutoRos.connect(url);
