@@ -11,14 +11,17 @@
   "main": "main.js",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.8.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "@fortawesome/free-solid-svg-icons": "^5.12.1",
+    "@fortawesome/react-fontawesome": "^0.1.8",
     "bootstrap": "^4.3.1",
     "electron": "^4.1.4",
     "eventemitter2": "^4.1.2",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.6",
-    "reactstrap": "^8.1.1",
     "react-dom": "^16.8.6",
     "react-scripts": "0.9.5",
+    "reactstrap": "^8.1.1",
     "roslib": "^1.0.1"
   },
   "devDependencies": {
