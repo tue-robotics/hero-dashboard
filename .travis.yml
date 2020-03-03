@@ -3,14 +3,19 @@ dist: xenial
 language: node_js
 node_js:
 - '12'
+
 cache: npm
+
 install:
 - npm install
+
 script:
 - npm run build
+
 before_deploy:
 - npm run deploy-linux
 - tar -pzcvf hero-dashboard-linux-x64-$TRAVIS_TAG.tar.gz -C dist/hero-dashboard-linux-x64/ .
+
 deploy:
   provider: releases
   token:
