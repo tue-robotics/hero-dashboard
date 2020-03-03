@@ -49,9 +49,9 @@
     "predeploy": "npm run clean dist/",
     "deploy-linux": "npm run predeploy && electron-packager . hero-dashboard --overwrite --asar --platform=linux --arch=x64 ---prune=true --out=dist",
     "version": "npm run build",
-    "patch": "npm version patch && npm run postpublish",
-    "minor": "npm version minor && npm run postpublish",
-    "major": "npm version major && npm run postpublish",
+    "patch": "npm version patch -m 'v%s' && npm run postpublish",
+    "minor": "npm version minor -m 'v%s' && npm run postpublish",
+    "major": "npm version major -m 'v%s' && npm run postpublish",
     "postpublish": "git push && git push --tags"
   },
   "homepage": "."
