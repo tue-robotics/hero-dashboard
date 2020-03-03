@@ -30,6 +30,10 @@
     "electron-packager": "^13.0.0",
     "rimraf": "^3.0.0"
   },
+  "optionalDependencies": {
+    "bufferutil": "4.0.1",
+    "utf-8-validate": "^5.0.2"
+  },
   "scripts": {
     "start": "react-scripts start",
     "clean": "rimraf",
