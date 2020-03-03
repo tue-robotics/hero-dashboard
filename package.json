@@ -22,7 +22,7 @@
     "react-dom": "^16.8.6",
     "react-scripts": "0.9.5",
     "reactstrap": "^8.1.1",
-    "roslib": "^1.0.1"
+    "roslib": "^1.1.0"
   },
   "devDependencies": {
     "dependency-check": "^4.1.0",
