@@ -1,8 +1,9 @@
 os: linux
-dist: xenial
+dist: bionic
 language: node_js
 node_js:
 - '12'
+- '14'
 
 cache: npm
 
@@ -11,6 +12,7 @@ install:
 
 script:
 - npm run build
+- npm run test
 
 before_deploy:
 - npm run deploy-linux
@@ -27,3 +29,4 @@ deploy:
     repo: tue-robotics/hero-dashboard
     tags: true
     all_branches: true
+    node_js: '12'
