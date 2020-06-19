@@ -1,25 +1,51 @@
 # hero-dashboard
 [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependency Status][daviddm-image-dev]][daviddm-url-dev] [![optionalDependencies Status][daviddm-image-optional]][daviddm-url-optional]
 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+Below you will find some information on how to perform common tasks.<br />
+You can find the most recent version of this guide [here](https://github.com/facebook/create-react-app/blob/master/packages/cra-template/template/README.md)
 
-Below you will find some information on how to perform common tasks.<br>
-You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+## Available Scripts
 
-## Table of Contents
+In the project directory, you can run:
 
-Developing with live-reloading
-```npm start```
+### `npm run start`
 
-Building
-```npm run build```
+Runs the app in the development mode.<br />
+Opens an dev server on [http://localhost:3000](http://localhost:3000).
 
-Open the build in firefox
-```firefox build/index.html```
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-Running with electron
-```npm run electron```
+### `npm run electron-start`
+
+Runs electron connected to the dev server on [http://localhost:3000](http://localhost:3000).<br />
+By default it connects to the rosbridge webserver on `localhost`.
+
+To connect to a different rosbridge webserver,
+add the desired hostname or ip-address as argument.
+
+### `npm run test`
+
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
+
+### `npm run electron`
+
+Runs electron on the builded version in production mode.<br />
+By default it connects to the rosbridge webserver on the current host.
+
+To connect to a different rosbridge webserver,
+add the desired hostname or ip-address as argument.
 
 [travis-image]: https://travis-ci.com/tue-robotics/hero-dashboard.svg?branch=master
 [travis-url]: https://travis-ci.com/tue-robotics/hero-dashboard
