@@ -134,7 +134,7 @@ class Battery extends Component {
                       color={this.state.batteries[value].type}
                       value={this.state.batteries[value].percentage}
                       animated={this.state.batteries[value].charging}
-                      style={{'background-color': '#d0d0d0', 'position': 'relative'}} >
+                      style={{'backgroundColor': '#d0d0d0', 'position': 'relative'}} >
                       <span style={{'position': 'absolute', 'display': 'block', 'width': '100%'}} >
                         <b>{`${this.state.batteries[value].percentage}%`}</b>
                       </span>

@@ -13,13 +13,15 @@ import AutoRos from './ros';
 class App extends Component {
   constructor() {
     super()
-    const remote = window.require("electron").remote;
-    const argv = remote.process.argv;
-    const index = argv.length - 1;
     var url;
-    if (index > 0) {
-      const host = argv[index];
-      url = `ws://${host}:9090`;
+    if (process.env.NODE_ENV !== 'test') {
+      const remote = window.require("electron").remote;
+      const argv = remote.process.argv;
+      const index = argv.length - 1;
+      if (index > 0) {
+        const host = argv[index];
+        url = `ws://${host}:9090`;
+      }
     }
     AutoRos.connect(url);
   }
