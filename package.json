@@ -10,32 +10,42 @@
   },
   "main": "main.js",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.8.1",
+    "@fortawesome/fontawesome-free": "^5.13.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
-    "@fortawesome/react-fontawesome": "^0.1.8",
-    "bootstrap": "^4.3.1",
-    "electron": "^4.1.4",
-    "eventemitter2": "^4.1.2",
-    "react": "^16.8.6",
-    "react-bootstrap": "^1.0.0-beta.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "0.9.5",
-    "reactstrap": "^8.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.11",
+    "bootstrap": "^4.5.0",
+    "eventemitter2": "^6.4.2",
+    "jquery": "^3.5.1",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.0.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "reactstrap": "^8.4.1",
     "roslib": "^1.1.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.10.0",
+    "@testing-library/react": "^10.3.0",
+    "@testing-library/user-event": "^12.0.0",
+    "cross-env": "^7.0.2",
     "dependency-check": "^4.1.0",
-    "electron": "^4.1.4",
-    "electron-packager": "^13.0.0",
-    "rimraf": "^3.0.0"
+    "devtron": "^1.4.0",
+    "electron": "^9.0.0",
+    "electron-packager": "^14.2.0",
+    "fibers": "^5.0.0",
+    "node-sass": "^4.14.1",
+    "rimraf": "^3.0.0",
+    "sass": "^1.26.8",
+    "sass-loader": "^8.0.2",
+    "typescript": "^3.9.5"
   },
   "optionalDependencies": {
     "bufferutil": "4.0.1",
     "utf-8-validate": "^5.0.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "cross-env BROWSER=none react-scripts start",
     "clean": "rimraf",
     "deps": "npm run deps:missing && npm run deps:extra",
     "deps:missing": "dependency-check . --missing",
@@ -43,9 +53,10 @@
     "prebuild": "npm run clean build/",
     "build": "react-scripts build",
     "postbuild": "npm run deps",
-    "test": "react-scripts test --env=jsdom",
+    "test": "cross-env NODE_ENV=test react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "electron": "electron .",
+    "electron": "cross-env NODE_ENV=production electron .",
+    "electron-start": "cross-env NODE_ENV=development electron . localhost",
     "predeploy": "npm run clean dist/",
     "deploy-linux": "npm run predeploy && electron-packager . hero-dashboard --overwrite --asar --platform=linux --arch=x64 ---prune=true --out=dist",
     "version": "npm run build",
@@ -53,6 +64,21 @@
     "minor": "npm version minor -m 'v%s' && npm run postpublish",
     "major": "npm version major -m 'v%s' && npm run postpublish",
     "postpublish": "git push && git push --tags"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "homepage": "."
 }

@@ -1,27 +1,55 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, screen} = require('electron')
+
+if (app.isPackaged) {
+  process.env.NODE_ENV = 'production'
+}
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
+const winURL = process.env.NODE_ENV === 'development'
+  ? 'http://localhost:3000'
+  : `file://${__dirname}/build/index.html`
 
 function createWindow () {
   // Create the browser window.
+  const window_width = process.env.NODE_ENV === 'production' ? 400 : 1024
+  const window_height = process.env.NODE_ENV === 'production' ? 60 : 600
   mainWindow = new BrowserWindow({
-    width: 400,
-    height: 60,
+    autoHideMenuBar: true,
+    width: window_width,
+    height: window_height,
     resizable: false,
     alwaysOnTop: true,
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      nodeIntegrationInWorker: true,
+      webSecurity: false
     }
   })
 
   // and load the index.html of the app.
-  mainWindow.loadFile('build/index.html')
+  mainWindow.loadURL(winURL)
 
-  // Open the DevTools.
-  //mainWindow.webContents.openDevTools()
+  // Open dev tools initially when in development mode
+  if (process.env.NODE_ENV === 'development') {
+    mainWindow.webContents.on('did-frame-finish-load', () => {
+      mainWindow.webContents.once('devtools-opened', () => {
+        mainWindow.focus()
+      })
+      mainWindow.webContents.openDevTools()
+    })
+  }
+
+  if (process.env.NODE_ENV === 'production') {
+    // No menu bar in production
+    mainWindow.removeMenu()
+
+    // move to right upper corner
+    const { width, height } = screen.getPrimaryDisplay().size
+    mainWindow.setBounds({ x: width - window_width, y: 75 })
+  }
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
