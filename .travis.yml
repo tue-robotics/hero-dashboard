@@ -5,10 +5,14 @@ node_js:
 - '12'
 - '14'
 
-cache: npm
+cache:
+  directories:
+  - "$HOME/.cache"
+  - "$HOME/.electron"
+  - "$HOME/.npm"
 
 install:
-- npm install
+- npm ci
 
 script:
 - npm run build
