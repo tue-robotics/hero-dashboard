@@ -18,7 +18,7 @@
     "eventemitter2": "^6.4.3",
     "jquery": "^3.5.1",
     "react": "^16.13.1",
-    "react-bootstrap": "^1.0.1",
+    "react-bootstrap": "^1.1.0",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "reactstrap": "^8.5.1",
