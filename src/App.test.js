@@ -5,7 +5,7 @@ import Indicator from './Indicator';
 import Battery from './Battery';
 import AutoRos from './ros';
 
-test('App', async () => {
+test('App', () => {
   const { container } = render(<App />);
   const IndicatorElement = container.querySelector('div.Indicator');
   expect(IndicatorElement).not.toBeNull();
@@ -13,13 +13,13 @@ test('App', async () => {
   expect(BatteryElement).toBeNull();
 });
 
-test('Indicator', async () => {
+test('Indicator', () => {
   const { container } = render(<Indicator ros={AutoRos.ros} />);
   const IndicatorElement = container.querySelector('div.Indicator');
   expect(IndicatorElement).not.toBeNull();
 });
 
-test('Empty Battery', async () => {
+test('Empty Battery', () => {
   const { container } = render(<Battery topic='battery' ros={AutoRos.ros} />);
   const BatteryElement = container.querySelector('div.Battery');
   expect(BatteryElement).toBeNull();
