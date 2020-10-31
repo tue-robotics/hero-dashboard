@@ -15,8 +15,8 @@ class App extends Component {
     super()
     var url;
     if (process.env.NODE_ENV !== 'test') {
-      const remote = window.require("electron").remote;
-      const argv = remote.process.argv;
+      // remote is preloaded
+      const argv = window.remote.process.argv;
       const index = argv.length - 1;
       if (index > 0) {
         const host = argv[index];

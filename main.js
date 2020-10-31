@@ -1,6 +1,8 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow, screen} = require('electron')
 
+const path = require("path")
+
 if (app.isPackaged) {
   process.env.NODE_ENV = 'production'
 }
@@ -23,9 +25,11 @@ function createWindow () {
     resizable: false,
     alwaysOnTop: true,
     webPreferences: {
-      nodeIntegration: true,
+      enableRemoteModule: true,
+      nodeIntegration: false,
       nodeIntegrationInWorker: true,
-      webSecurity: false
+      preload: path.join(app.getAppPath(), 'preload.js'),
+      webSecurity: true
     }
   })
 
