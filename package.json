@@ -2,83 +2,62 @@
   "name": "hero-dashboard",
   "version": "0.4.1",
   "private": true,
-  "repository": "tue-robotics/hero-dashboard",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tue-robotics/hero-dashboard.git"
+  },
   "author": {
     "name": "Matthijs van der Burgh",
-    "email": "MatthijsBurgh@outlook.com",
-    "url": "https://github.com/MatthijsBurgh"
+    "email": "MatthijsBurgh@outlook.com"
   },
-  "main": "main.js",
+  "description": "Dashboard for HERO robot",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test:unit": "cross-env NO_FULLSCREEN=1 vue-cli-service test:unit",
+    "test": "npm run test:unit",
+    "lint": "vue-cli-service lint",
+    "electron:build": "vue-cli-service electron:build",
+    "electron:serve": "vue-cli-service electron:serve localhost",
+    "postinstall": "electron-builder install-app-deps",
+    "postuninstall": "electron-builder install-app-deps"
+  },
+  "main": "background.js",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
-    "@fortawesome/react-fontawesome": "^0.1.12",
+    "@fortawesome/vue-fontawesome": "^2.0.0",
     "bootstrap": "^4.5.3",
+    "bootstrap-vue": "^2.19.0",
+    "core-js": "^3.6.5",
     "eventemitter2": "^6.4.3",
-    "jquery": "^3.5.1",
-    "react": "^16.14.0",
-    "react-bootstrap": "^1.4.0",
-    "react-dom": "^16.14.0",
-    "react-scripts": "4.0.0",
-    "reactstrap": "^8.7.1",
-    "roslib": "^1.1.0"
+    "jpeg-js": "^0.4.2",
+    "roslib": "^1.1.0",
+    "vue": "^2.6.11"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.11.6",
-    "@testing-library/react": "^11.1.2",
-    "@testing-library/user-event": "^12.2.2",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-unit-mocha": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-standard": "^5.1.2",
+    "@vue/test-utils": "^1.0.3",
+    "babel-eslint": "^10.1.0",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
     "cross-env": "^7.0.2",
-    "dependency-check": "^4.1.0",
-    "devtron": "^1.4.0",
-    "electron": "^10.1.5",
-    "electron-packager": "^15.1.0",
-    "fibers": "^5.0.0",
-    "node-sass": "^5.0.0",
-    "rimraf": "^3.0.2",
-    "sass": "^1.29.0",
-    "sass-loader": "^10.1.0",
-    "typescript": "^4.0.5"
-  },
-  "optionalDependencies": {
-    "bufferutil": "4.0.2",
-    "utf-8-validate": "^5.0.3"
-  },
-  "scripts": {
-    "start": "cross-env BROWSER=none react-scripts start",
-    "clean": "rimraf",
-    "deps": "npm run deps:missing && npm run deps:extra",
-    "deps:missing": "dependency-check . --missing",
-    "deps:extra": "dependency-check . --extra --no-dev",
-    "prebuild": "npm run clean build/",
-    "build": "react-scripts build",
-    "postbuild": "npm run deps",
-    "test": "cross-env NODE_ENV=test react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "electron": "cross-env NODE_ENV=production electron .",
-    "electron-start": "cross-env NODE_ENV=development electron . localhost",
-    "predeploy": "npm run clean dist/",
-    "deploy-linux": "npm run predeploy && electron-packager . hero-dashboard --overwrite --asar --platform=linux --arch=x64 ---prune=true --out=dist",
-    "version": "npm run build",
-    "patch": "npm version patch -m 'v%s' && npm run postpublish",
-    "minor": "npm version minor -m 'v%s' && npm run postpublish",
-    "major": "npm version major -m 'v%s' && npm run postpublish",
-    "postpublish": "git push && git push --tags"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "homepage": "."
+    "electron": "^10.0.0",
+    "electron-devtools-installer": "^3.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.2",
+    "spectron": "12.0.0",
+    "vue-cli-plugin-electron-builder": "~2.0.0-rc.5",
+    "vue-template-compiler": "^2.6.11"
+  }
 }
