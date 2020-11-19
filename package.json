@@ -14,7 +14,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "test:unit": "cross-env NO_FULLSCREEN=1 vue-cli-service test:unit",
+    "test:unit": "vue-cli-service test:unit",
     "test": "npm run test:unit",
     "lint": "vue-cli-service lint",
     "electron:build": "vue-cli-service electron:build",
@@ -45,7 +45,6 @@
     "babel-eslint": "^10.1.0",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
-    "cross-env": "^7.0.2",
     "electron": "^10.0.0",
     "electron-devtools-installer": "^3.1.0",
     "eslint": "^6.7.2",
