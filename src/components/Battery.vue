@@ -9,7 +9,6 @@
         id="battery_col"
         :key="key"
         align="center"
-        class="pr-0 pl-0 mr-1 ml-1"
       >
         <span>
           <h5 vertical-align="text-bottom">
@@ -135,7 +134,7 @@ export default {
     }
   },
   beforeUnmount () {
-    this.batteryTopic.unsubscribe({})
+    this.batteryTopic.unsubscribe()
   }
 }
 </script>
