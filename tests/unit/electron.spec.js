@@ -8,7 +8,7 @@ chai.should()
 chai.use(chaiAsPromised)
 
 describe('Application launch', function () {
-  this.timeout(30000)
+  this.timeout(60000)
 
   before(function () {
     return testWithSpectron(spectron).then(instance => {
