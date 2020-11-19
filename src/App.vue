@@ -1,21 +1,19 @@
 <template>
   <div id="app">
-    <b-container>
-      <b-row>
-        <b-col>
-          <Indicator
-            id="indicator"
-            :ros="ros"
-          />
-        </b-col>
-        <b-col>
-          <Battery
-            id="battery"
-            :ros="ros"
-          />
-        </b-col>
-      </b-row>
-    </b-container>
+    <b-row>
+      <b-col>
+        <Indicator
+          id="indicator"
+          :ros="ros"
+        />
+      </b-col>
+      <b-col>
+        <Battery
+          id="battery"
+          :ros="ros"
+        />
+      </b-col>
+    </b-row>
   </div>
 </template>
 
@@ -57,8 +55,9 @@ export default {
 body {
   margin: 0;
   padding: 0;
-  width: 400px;
-  height: 70px;
+  width: 375px;
+  height: 60px;
+  line-height: 1.15;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -66,9 +65,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 #indicator {
-  margin: 20px;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 #battery {
@@ -78,8 +78,10 @@ body {
 }
 #battery_col {
   width: 120px;
-  padding-left: 5px !important;
-  padding-right: 5px !important;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 .row {
   display: inline-flex;
