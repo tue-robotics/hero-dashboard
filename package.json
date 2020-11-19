@@ -20,7 +20,12 @@
     "electron:build": "vue-cli-service electron:build",
     "electron:serve": "vue-cli-service electron:serve localhost",
     "postinstall": "electron-builder install-app-deps",
-    "postuninstall": "electron-builder install-app-deps"
+    "postuninstall": "electron-builder install-app-deps",
+    "version": "npm run electron:build",
+    "patch": "npm version patch -m 'v%s' && npm run postpublish",
+    "minor": "npm version minor -m 'v%s' && npm run postpublish",
+    "major": "npm version major -m 'v%s' && npm run postpublish",
+    "postpublish": "git push && git push --tag"
   },
   "main": "background.js",
   "dependencies": {
