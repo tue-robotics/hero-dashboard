@@ -25,7 +25,7 @@ before_script:
 - Xvfb :99 -screen 0 1024x600x24 > /dev/null 2>&1 &
 
 script:
-- npm run build
+- npm run electron:build
 - npm run test
 
 deploy:
