@@ -33,11 +33,12 @@ export default {
         name: 'runstop_button',
         messageType: 'std_msgs/Bool'
       }),
-      type: 'danger'
+      type: 'dark'
     }
   },
   mounted () {
     this.indicatorTopic.subscribe(this.handleMsg)
+    this.ros.on('close', this.OnClose.bind(this))
   },
   methods: {
     handleMsg (msg) {
@@ -46,10 +47,13 @@ export default {
       } else {
         this.type = 'success'
       }
+    },
+    OnClose () {
+      this.type = 'dark'
     }
   },
   beforeUnmount () {
-    this.indicatorTopic.unsubscribe({})
+    this.indicatorTopic.unsubscribe()
   }
 }
 </script>
