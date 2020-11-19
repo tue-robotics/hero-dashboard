@@ -1,6 +1,6 @@
 # hero-dashboard
-[![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependency Status][daviddm-image-dev]][daviddm-url-dev] [![optionalDependencies Status][daviddm-image-optional]][daviddm-url-optional]
 
+[![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependency Status][daviddm-image-dev]][daviddm-url-dev] [![optionalDependencies Status][daviddm-image-optional]][daviddm-url-optional]
 
 Dashboard for HERO robot. It shows the status of the emergency button and the batteries.
 
@@ -14,10 +14,10 @@ npm install
 npm run electron:serve
 
 # Compiles and minifies for production
-npm run build
+npm run electron:build
 
 # Run your unit tests
-npm run test:unit
+NO_FULLSCREEN=1 npm run test:unit
 
 # Lints and fixes files
 npm run lint
@@ -37,16 +37,15 @@ sudo apt-get install ros-$ROS_DISTRO-rosbridge-server ros-$ROS_DISTRO-rostopic
 # Launch rosbridge server
 roslaunch rosbridge_server rosbridge_websocket.launch
 
-# Launch example string publisher
-rostopic pub /text_to_speech/output std_msgs/String -- "I am hero, an awesome robot!"
+# Publish example emergency button
+rostopic pub /runstop_button std_msgs/Bool -- "false"
 
-# Run hero-display executable
-export NO_FULLSCREEN=1 && ./hero-dashboard.AppImage
+# Run hero-dashboard executable
+./dist_electron/hero-dashboard.AppImage
 ```
 
-
 To connect to a different rosbridge webserver,
-add the desired hostname or ip-address as argument.
+add the desired hostname or ip-address as final argument.
 
 ---
 
