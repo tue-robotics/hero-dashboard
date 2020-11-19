@@ -17,7 +17,7 @@
     "test:unit": "vue-cli-service test:unit",
     "test": "npm run test:unit",
     "lint": "vue-cli-service lint",
-    "electron:build": "vue-cli-service electron:build",
+    "electron:build": "vue-cli-service electron:build --publish=never",
     "electron:serve": "vue-cli-service electron:serve localhost",
     "postinstall": "electron-builder install-app-deps",
     "postuninstall": "electron-builder install-app-deps",
