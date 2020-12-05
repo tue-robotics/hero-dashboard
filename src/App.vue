@@ -21,7 +21,8 @@
 /* eslint new-cap: ["error", { "properties": false }] */
 /* eslint node/prefer-global/buffer: [error, never] */
 
-import { AutoRos, Battery, Indicator } from 'hero-vue'
+import AutoRos from 'auto-ros'
+import { Battery, Indicator } from 'hero-vue'
 
 import { BCol, BRow } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
