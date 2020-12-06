@@ -47,8 +47,6 @@ rostopic pub /runstop_button std_msgs/Bool -- "false"
 To connect to a different rosbridge webserver,
 add the desired hostname or ip-address as final argument.
 
----
-
 [travis-image]: https://travis-ci.com/tue-robotics/hero-dashboard.svg?branch=master
 [travis-url]: https://travis-ci.com/tue-robotics/hero-dashboard
 
