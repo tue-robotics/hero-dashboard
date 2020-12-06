@@ -1,6 +1,6 @@
 # hero-dashboard
 
-[![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependency Status][daviddm-image-dev]][daviddm-url-dev] [![optionalDependencies Status][daviddm-image-optional]][daviddm-url-optional]
+[![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependency Status][daviddm-image-dev]][daviddm-url-dev]
 
 Dashboard for HERO robot. It shows the status of the emergency button and the batteries.
 
@@ -56,5 +56,3 @@ add the desired hostname or ip-address as final argument.
 [daviddm-url]: https://david-dm.org/tue-robotics/hero-dashboard
 [daviddm-image-dev]: https://david-dm.org/tue-robotics/hero-dashboard/dev-status.svg
 [daviddm-url-dev]: https://david-dm.org/tue-robotics/hero-dashboard?type=dev
-[daviddm-image-optional]: https://david-dm.org/tue-robotics/hero-dashboard/optional-status.svg
-[daviddm-url-optional]: https://david-dm.org/tue-robotics/hero-dashboard?type=optional
