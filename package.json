@@ -32,7 +32,6 @@
     "auto-ros": "^0.1.1",
     "bootstrap": "^4.5.3",
     "bootstrap-vue": "^2.20.1",
-    "core-js": "^3.8.0",
     "hero-vue": "^0.3.0",
     "roslib": "^1.1.0",
     "vue": "^2.6.11"
