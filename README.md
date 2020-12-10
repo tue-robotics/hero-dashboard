@@ -1,6 +1,6 @@
 # hero-dashboard
 
-[![CI][actions-image]][actions-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependency Status][daviddm-image-dev]][daviddm-url-dev]
+[![CI][gh-actions-image]][gh-actions-url] [![Dependency Status][daviddm-image]][daviddm-url] [![devDependency Status][daviddm-image-dev]][daviddm-url-dev]
 
 Dashboard for HERO robot. It shows the status of the emergency button and the batteries.
 
@@ -47,8 +47,8 @@ rostopic pub /runstop_button std_msgs/Bool -- "false"
 To connect to a different rosbridge webserver,
 add the desired hostname or ip-address as final argument.
 
-[actions-image]: https://github.com/tue-robotics/hero-dashboard/workflows/CI/badge.svg
-[actions-url]: https://github.com/tue-robotics/hero-dashboard/actions
+[gh-actions-image]: https://github.com/tue-robotics/hero-dashboard/workflows/CI/badge.svg
+[gh-actions-url]: https://github.com/tue-robotics/hero-dashboard/actions
 
 [daviddm-image]: https://david-dm.org/tue-robotics/hero-dashboard/status.svg
 [daviddm-url]: https://david-dm.org/tue-robotics/hero-dashboard
