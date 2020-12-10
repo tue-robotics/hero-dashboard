@@ -39,7 +39,7 @@ describe('Application launch', function () {
     return this.app.client.browserWindow.isVisible().should.eventually.be.true
   })
 
-  it('Window bounds are corect', function () {
+  it('Window bounds are correct', function () {
     return this.app.client.browserWindow.getBounds().should.eventually.include({ width: 375, height: 60 })
   })
 
