@@ -21,17 +21,22 @@
 /* eslint new-cap: ["error", { "properties": false }] */
 /* eslint node/prefer-global/buffer: [error, never] */
 
-import Battery from './components/Battery.vue'
-import Indicator from './components/Indicator.vue'
+import AutoRos from 'auto-ros'
+import { Battery, Indicator } from 'hero-vue'
+
+import { BCol, BRow } from 'bootstrap-vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 import { remote } from 'electron'
-import AutoRos from './services/ros'
 
 export default {
   name: 'HeroDashboard',
   components: {
     Battery,
-    Indicator
+    Indicator,
+    'b-col': BCol,
+    'b-row': BRow
   },
   data () {
     return {
