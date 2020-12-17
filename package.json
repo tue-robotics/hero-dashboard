@@ -31,7 +31,7 @@
   "dependencies": {
     "auto-ros": "^0.1.1",
     "bootstrap": "^4.5.3",
-    "bootstrap-vue": "^2.21.0",
+    "bootstrap-vue": "^2.21.1",
     "hero-vue": "^0.3.0",
     "roslib": "^1.1.0",
     "vue": "^2.6.11"
