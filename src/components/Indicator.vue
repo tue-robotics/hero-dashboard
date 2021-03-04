@@ -40,6 +40,9 @@ export default {
     this.indicatorTopic.subscribe(this.handleMsg)
     this.ros.on('close', this.OnClose.bind(this))
   },
+  beforeUnmount () {
+    this.indicatorTopic.unsubscribe()
+  },
   methods: {
     handleMsg (msg) {
       if (msg.data) {
@@ -51,9 +54,6 @@ export default {
     OnClose () {
       this.type = 'dark'
     }
-  },
-  beforeUnmount () {
-    this.indicatorTopic.unsubscribe()
   }
 }
 </script>

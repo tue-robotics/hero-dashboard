@@ -64,6 +64,9 @@ export default {
   mounted () {
     this.batteryTopic.subscribe(this.handleBatteryMsg)
   },
+  beforeUnmount () {
+    this.batteryTopic.unsubscribe()
+  },
   methods: {
     setupClearBatteryType (key, seconds = 10) {
       if (this.batteries[key].TypeTimeOut) {
@@ -132,9 +135,6 @@ export default {
       this.setupClearBatteryType(key, 10)
       this.setupRemoveBattery(key, 60)
     }
-  },
-  beforeUnmount () {
-    this.batteryTopic.unsubscribe()
   }
 }
 </script>
