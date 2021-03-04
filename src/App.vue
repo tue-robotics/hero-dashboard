@@ -28,8 +28,6 @@ import { BCol, BRow } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-import { remote } from 'electron'
-
 export default {
   name: 'HeroDashboard',
   components: {
@@ -44,7 +42,7 @@ export default {
     }
   },
   mounted () {
-    const argv = remote.process.argv
+    const argv = require('@electron/remote').process.argv
     const index = argv.length - 1
     let url = this.endPoint
     if (index > 0) {
