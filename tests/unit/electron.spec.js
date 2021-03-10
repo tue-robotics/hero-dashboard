@@ -11,15 +11,15 @@ describe('Application launch', function () {
   this.timeout(60000)
 
   before(function () {
-    return testWithSpectron(spectron).then(instance => {
+    return testWithSpectron(spectron).then((instance) => {
       this.app = instance.app
       this.stopServe = instance.stopServe
     })
   })
 
-  // before(function () {
-  // chaiAsPromised.transferPromiseness = this.app.transferPromiseness
-  // })
+  before(function () {
+    chaiAsPromised.transferPromiseness = this.app.transferPromiseness
+  })
 
   after(function () {
     if (this.app && this.app.isRunning()) {
