@@ -33,7 +33,7 @@ jobs:
       - name: Build
         run: npm run electron:build
       - name: Test
-        uses: GabrielBB/xvfb-action@v1.4
+        uses: GabrielBB/xvfb-action@v1.5
         with:
           run: --server-args="-screen 0, 1024x600x24" npm test
 
