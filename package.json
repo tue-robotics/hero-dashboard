@@ -31,7 +31,7 @@
   "dependencies": {
     "@electron/remote": "^1.1.0",
     "auto-ros": "^0.1.2",
-    "bootstrap": "^4.6.0",
+    "bootstrap": "^5.0.1",
     "bootstrap-vue": "^2.21.0",
     "hero-vue": "^0.3.4",
     "roslib": "^1.1.0",
