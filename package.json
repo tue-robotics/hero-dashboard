@@ -54,7 +54,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.3.0",
     "eslint-plugin-vue": "^7.9.0",
-    "spectron": "^14.0.0",
+    "spectron": "^15.0.0",
     "vue-cli-plugin-electron-builder": "~2.0.0",
     "vue-template-compiler": "^2.6.0"
   }
