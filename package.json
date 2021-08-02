@@ -52,7 +52,7 @@
     "eslint": "^7.31.0",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.3.0",
+    "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-vue": "^7.15.0",
     "spectron": "^15.0.0",
     "vue-cli-plugin-electron-builder": "~2.1.1",
