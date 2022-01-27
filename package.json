@@ -29,7 +29,7 @@
   },
   "main": "background.js",
   "dependencies": {
-    "@electron/remote": "^1.2.1",
+    "@electron/remote": "^2.0.1",
     "auto-ros": "^0.1.5",
     "bootstrap": "^4.6.1",
     "bootstrap-vue": "^2.21.0",
