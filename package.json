@@ -47,7 +47,7 @@
     "babel-eslint": "^10.1.0",
     "chai": "^4.3.6",
     "chai-as-promised": "^7.1.0",
-    "electron": "^13.3.0",
+    "electron": "^16.0.7",
     "electron-devtools-installer": "^3.2.0",
     "eslint": "^7.32.0",
     "eslint-plugin-import": "^2.25.4",
