@@ -38,6 +38,7 @@ export default {
   },
   data () {
     return {
+      endPoint: 'ws://localhost:9090',
       ros: AutoRos.ros
     }
   },
