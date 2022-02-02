@@ -11,7 +11,7 @@ describe('Application launch', function () {
   this.timeout(60000)
 
   before(function () {
-    return testWithSpectron(spectron).then((instance) => {
+    return testWithSpectron(spectron, { spectronOptions: { args: ['dist_electron', 'random_host.local'] } }).then((instance) => {
       this.app = instance.app
       this.stopServe = instance.stopServe
     })
@@ -45,5 +45,9 @@ describe('Application launch', function () {
 
   it('Window title is correct', function () {
     return this.app.client.browserWindow.getTitle().should.eventually.be.equal('hero-dashboard')
+  })
+
+  it('Argument passing works', function () {
+    return this.app.mainProcess.argv().should.eventually.include('random_host.local')
   })
 })
