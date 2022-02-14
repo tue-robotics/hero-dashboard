@@ -47,6 +47,10 @@ describe('Application launch', function () {
     return this.app.client.browserWindow.isResizable().should.eventually.be.false
   })
 
+  it('Window should be always on top', function () {
+    return this.app.client.browserWindow.isAlwaysOnTop().should.eventually.be.true
+  })
+
   it('Window title is correct', function () {
     return this.app.client.browserWindow.getTitle().should.eventually.be.equal('hero-dashboard')
   })
