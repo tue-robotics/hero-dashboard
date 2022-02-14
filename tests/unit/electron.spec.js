@@ -43,6 +43,10 @@ describe('Application launch', function () {
     return this.app.client.browserWindow.getBounds().should.eventually.include({ width: 375, height: 60 })
   })
 
+  it('Window is not resizable', function () {
+    return this.app.client.browserWindow.isResizable().should.eventually.be.false
+  })
+
   it('Window title is correct', function () {
     return this.app.client.browserWindow.getTitle().should.eventually.be.equal('hero-dashboard')
   })
