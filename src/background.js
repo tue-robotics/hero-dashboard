@@ -41,6 +41,8 @@ async function createWindow () {
     // move to right upper corner
     const { width } = screen.getPrimaryDisplay().size
     win.setBounds({ x: width - windowWidth, y: 75 })
+
+    win.setAlwaysOnTop(true) // TEMP: workaround for the option not working in 'new BrowserWindow'
   }
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
