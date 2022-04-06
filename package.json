@@ -35,7 +35,7 @@
     "bootstrap-vue": "^2.21.0",
     "hero-vue": "^0.3.7",
     "roslib": "^1.2.0",
-    "vue": "^2.6.14"
+    "vue": "^3.2.31"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~5.0.1",
