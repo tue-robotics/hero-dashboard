@@ -26,7 +26,7 @@
     "patch": "npm version patch -m 'v%s' && npm run postpublish",
     "minor": "npm version minor -m 'v%s' && npm run postpublish",
     "major": "npm version major -m 'v%s' && npm run postpublish",
-    "postpublish": "git push && git push --tag"
+    "postpublish": "git push && git push --tags"
   },
   "main": "background.js",
   "dependencies": {
