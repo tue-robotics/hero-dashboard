@@ -1,6 +1,6 @@
 {
   "name": "hero-dashboard",
-  "version": "0.6.5",
+  "version": "0.7.0",
   "private": true,
   "repository": {
     "type": "git",
@@ -17,11 +17,10 @@
     "test:unit": "vue-cli-service test:unit",
     "test": "npm run test:unit",
     "lint": "vue-cli-service lint",
-    "preelectron:build": "npm run lint",
+    "preelectron:build": "npm run electron:generate-icons",
     "electron:build": "vue-cli-service electron:build --publish=never",
     "electron:serve": "vue-cli-service electron:serve localhost",
     "electron:generate-icons": "electron-icon-builder --input=./public/icon.png --output=build --flatten",
-    "preelectron:build": "npm run electron:generate-icons",
     "postinstall": "electron-builder install-app-deps",
     "postuninstall": "electron-builder install-app-deps",
     "version": "npm run electron:build",
