@@ -23,7 +23,7 @@ async function createWindow () {
     height: windowHeight,
     useContentSize: true,
     alwaysOnTop: !isDevelopment,
-    resizable: isDevelopment,
+    icon: path.join(__static, 'icon.png'),
     webPreferences: {
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
@@ -42,8 +42,6 @@ async function createWindow () {
     // move to right upper corner
     const { width } = screen.getPrimaryDisplay().size
     win.setBounds({ x: width - windowWidth, y: 75 })
-
-    win.setAlwaysOnTop(true) // TEMP: workaround for the option not working in 'new BrowserWindow'
   }
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
