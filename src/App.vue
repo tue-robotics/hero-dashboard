@@ -4,13 +4,13 @@
       <b-col>
         <Indicator
           id="indicator"
-          :ros="ros"
+          :ros="autoRos.ros"
         />
       </b-col>
       <b-col>
         <Battery
           id="battery"
-          :ros="ros"
+          :ros="autoRos.ros"
         />
       </b-col>
     </b-row>
@@ -37,8 +37,8 @@ export default {
   },
   data () {
     return {
-      endPoint: 'ws://localhost:9090',
-      ros: AutoRos.ros
+      autoRos: new AutoRos(),
+      endPoint: 'ws://localhost:9090'
     }
   },
   mounted () {
@@ -49,7 +49,7 @@ export default {
       const host = argv[index]
       url = `ws://${host}:9090`
     }
-    AutoRos.connect(url)
+    this.autoRos.connect(url)
   }
 }
 </script>

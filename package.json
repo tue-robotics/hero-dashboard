@@ -32,7 +32,7 @@
   "main": "background.js",
   "dependencies": {
     "@electron/remote": "^2.0.7",
-    "auto-ros": "^0.1.5",
+    "auto-ros": "^1.0.0",
     "bootstrap": "^4.6.1",
     "bootstrap-vue": "^2.23.0",
     "hero-vue": "^0.3.7",
