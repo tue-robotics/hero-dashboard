@@ -24,6 +24,7 @@ async function createWindow () {
     height: windowHeight,
     useContentSize: true,
     alwaysOnTop: !isDevelopment,
+    resizable: isDevelopment,
     icon: path.join(__static, 'icon.png'),
     webPreferences: {
       // Use pluginOptions.nodeIntegration, leave this alone
