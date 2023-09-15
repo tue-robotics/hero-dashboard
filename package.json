@@ -41,7 +41,7 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.22.5",
     "@matthijsburgh/vue-cli-plugin-electron-builder": "^3.0.1",
-    "@playwright/test": "^1.37.0",
+    "@playwright/test": "^1.38.0",
     "@vue/cli-plugin-babel": "~5.0.1",
     "@vue/cli-plugin-eslint": "~5.0.1",
     "@vue/cli-service": "~4.5.15",
@@ -54,7 +54,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.1.0",
     "eslint-plugin-vue": "^9.17.0",
-    "playwright-core": "^1.36.0",
+    "playwright-core": "^1.38.0",
     "vue-template-compiler": "^2.7.10"
   }
 }
