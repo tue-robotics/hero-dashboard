@@ -39,7 +39,7 @@
     "vue": "^2.7.10"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.22.5",
+    "@babel/eslint-parser": "^7.23.3",
     "@matthijsburgh/vue-cli-plugin-electron-builder": "^3.0.1",
     "@playwright/test": "^1.39.0",
     "@vue/cli-plugin-babel": "~5.0.1",
