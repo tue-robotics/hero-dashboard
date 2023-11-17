@@ -54,7 +54,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.1.0",
     "eslint-plugin-vue": "^9.18.0",
-    "playwright-core": "^1.39.0",
+    "playwright-core": "^1.40.0",
     "vue-template-compiler": "^2.7.10"
   }
 }
