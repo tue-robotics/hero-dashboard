@@ -36,7 +36,7 @@
     "bootstrap-vue": "^2.23.0",
     "hero-vue": "^0.3.7",
     "roslib": "^1.4.1",
-    "vue": "^2.7.10"
+    "vue": "^3.3.12"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.23.3",
