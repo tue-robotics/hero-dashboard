@@ -41,7 +41,7 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.26.5",
     "@matthijsburgh/vue-cli-plugin-electron-builder": "^3.0.0",
-    "@playwright/test": "^1.51.1",
+    "@playwright/test": "^1.54.1",
     "@vue/cli-plugin-babel": "~5.0.1",
     "@vue/cli-plugin-eslint": "~5.0.1",
     "@vue/cli-service": "~5.0.8",
