@@ -46,7 +46,7 @@
     "@vue/cli-plugin-eslint": "~5.0.1",
     "@vue/cli-service": "~5.0.8",
     "@vue/eslint-config-standard": "^8.0.1",
-    "electron": "^35.1.5",
+    "electron": "^37.2.4",
     "electron-devtools-installer": "^4.0.0",
     "electron-icon-builder": "^2.0.1",
     "eslint": "^8.57.0",
