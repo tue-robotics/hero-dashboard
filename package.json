@@ -56,5 +56,8 @@
     "eslint-plugin-vue": "^9.32.0",
     "playwright-core": "^1.54.1",
     "vue-template-compiler": "^2.7.10"
+  },
+  "engines": {
+    "npm": "^10.5.0"
   }
 }
