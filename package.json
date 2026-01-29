@@ -1,63 +1,94 @@
 {
   "name": "hero-dashboard",
+  "productName": "HERO dashboard",
   "version": "0.8.0",
+  "description": "Dashboard for HERO robot",
+  "main": "build/electron/main.js",
+  "author": {
+    "name": "Matthijs van der Burgh",
+    "email": "MatthijsBurgh@outlook.com",
+    "url": "https://github.com/MatthijsBurgh/"
+  },
+  "contributors": [
+    {
+      "name": "Matthijs van der Burgh",
+      "email": "MatthijsBurgh@outlook.com",
+      "url": "https://github.com/MatthijsBurgh/"
+    }
+  ],
   "private": true,
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/tue-robotics/hero-dashboard.git"
   },
-  "author": {
-    "name": "Matthijs van der Burgh",
-    "email": "MatthijsBurgh@outlook.com"
+  "bugs": {
+    "url": "https://github.com/tue-robotics/hero-dashboard/issues"
   },
-  "description": "Dashboard for HERO robot",
+  "homepage": "https://github.com/tue-robotics/hero-dashboard#readme",
+  "keywords": [
+    "electron",
+    "electron-quick-start",
+    "electron-app",
+    "electron-vue",
+    "electron-vite",
+    "electron-builder",
+    "vuejs",
+    "vue3",
+    "vitejs"
+  ],
   "scripts": {
-    "serve": "NODE_OPTIONS=--openssl-legacy-provider vue-cli-service serve",
-    "build": "NODE_OPTIONS=--openssl-legacy-provider vue-cli-service build",
-    "test": "NODE_OPTIONS=--openssl-legacy-provider playwright test",
-    "lint": "NODE_OPTIONS=--openssl-legacy-provider vue-cli-service lint",
-    "preelectron:build": "npm run lint && npm run electron:generate-icons",
-    "electron:build": "NODE_OPTIONS=--openssl-legacy-provider vue-cli-service electron:build --publish=never",
-    "electron:serve": "NODE_OPTIONS=--openssl-legacy-provider vue-cli-service electron:serve localhost",
-    "electron:generate-icons": "NODE_OPTIONS=--openssl-legacy-provider electron-icon-builder --input=./public/icon.png --output=build --flatten",
-    "postinstall": "NODE_OPTIONS=--openssl-legacy-provider electron-builder install-app-deps",
-    "postuninstall": "NODE_OPTIONS=--openssl-legacy-provider electron-builder install-app-deps",
-    "version": "npm run electron:build",
+    "start": "npm run dev",
+    "dev": "vite dev",
+    "format": "prettier \"{{electron,src,tests}/**,.}/*.{ts,js,json,yml,css,scss,md,mts,vue}\" --check",
+    "format:fix": "npm run format -- --write",
+    "lint": "eslint \"{{electron,src,tests}/**,.}/*.{ts,js,vue,json,yml}\"",
+    "lint:fix": "npm run lint -- --fix",
+    "prebuild": "rimraf -rf build dist && npm run format:fix && npm run lint:fix && npm run generate-icons",
+    "build": "vue-tsc && vite build && electron-builder --publish=never",
+    "generate-icons": "electron-icon-builder --input=./public/icon.png --output=build --flatten",
+    "preview": "vite preview",
+    "test": "playwright test",
+    "postinstall": "electron-builder install-app-deps",
+    "postuninstall": "electron-builder install-app-deps",
+    "clean": "rimraf -rf build dist node_modules",
+    "version": "npm run build",
     "patch": "npm version patch -m 'v%s' && npm run postpublish",
     "minor": "npm version minor -m 'v%s' && npm run postpublish",
     "major": "npm version major -m 'v%s' && npm run postpublish",
-    "postpublish": "git push && git push --tags"
+    "postpublish": "git push -u && git push --tags"
   },
-  "main": "background.js",
   "dependencies": {
-    "@electron/remote": "^2.1.0",
-    "auto-ros": "^1.1.0",
-    "bootstrap": "^4.6.1",
-    "bootstrap-vue": "^2.23.0",
-    "hero-vue": "^0.3.7",
-    "roslib": "^1.4.1",
-    "vue": "^2.7.10"
+    "@fortawesome/fontawesome-svg-core": "^7.1.0",
+    "@fortawesome/free-solid-svg-icons": "^7.1.0",
+    "@fortawesome/vue-fontawesome": "^3.1.3",
+    "auto-ros": "^2.2.0",
+    "hero-vue": "^1.2.3",
+    "roslib": "^2.0.1",
+    "vue": "^3.5.24"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.28.0",
-    "@matthijsburgh/vue-cli-plugin-electron-builder": "^3.0.0",
-    "@playwright/test": "^1.57.0",
-    "@vue/cli-plugin-babel": "~5.0.1",
-    "@vue/cli-plugin-eslint": "~5.0.1",
-    "@vue/cli-service": "~5.0.8",
-    "@vue/eslint-config-standard": "^8.0.1",
-    "electron": "^35.1.5",
+    "@eslint/js": "^9.39.1",
+    "@playwright/test": "^1.58.0",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/eslint-config-prettier": "^10.2.0",
+    "@vue/eslint-config-typescript": "^14.6.0",
+    "electron": "^39.1.1",
+    "electron-builder": "^26.0.12",
     "electron-devtools-installer": "^4.0.0",
     "electron-icon-builder": "^2.0.1",
-    "eslint": "^8.57.0",
-    "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^7.2.1",
-    "eslint-plugin-vue": "^9.33.0",
-    "playwright-core": "^1.57.0",
-    "vue-template-compiler": "^2.7.10"
-  },
-  "engines": {
-    "npm": "^10.5.0"
+    "eslint": "^9.39.1",
+    "eslint-plugin-vue": "^10.7.0",
+    "globals": "^16.5.0",
+    "prettier": "^3.6.2",
+    "rimraf": "^6.1.0",
+    "sass-embedded": "^1.93.3",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.3",
+    "vite": "^7.2.2",
+    "vite-plugin-electron": "^0.28.8",
+    "vite-plugin-electron-renderer": "^0.14.6",
+    "vite-plugin-vue-devtools": "^8.0.3",
+    "vue-tsc": "^3.1.3"
   }
 }

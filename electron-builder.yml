@@ -1,0 +1,21 @@
+# @see https://www.electron.build/configuration/configuration
+---
+appId: com.hero-dashboard.dashboard-app
+productName: hero-dashboard
+copyright: Copyright © 2026 — ${author}
+artifactName: hero-dashboard.${ext}
+asar: true
+asarUnpack: ["**/*.node"]
+
+directories:
+  buildResources: build
+  output: dist
+
+files:
+  - build
+  - "!node_modules/**" # This only needed if you have native/external modules
+
+linux:
+  category: Utility
+  target:
+    - AppImage
