@@ -7,6 +7,8 @@ artifactName: hero-dashboard.${ext}
 asar: true
 asarUnpack: ["**/*.node"]
 
+afterPack: electron-builder-sandbox-fix
+
 directories:
   buildResources: build
   output: dist
