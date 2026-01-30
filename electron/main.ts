@@ -33,8 +33,9 @@ function createWindow() {
     title: `${productName}${isDevelopment ? " [development]" : ""}`,
     width: windowWidth,
     height: windowHeight,
-    resizable: true,
-    maximizable: true,
+    useContentSize: true,
+    alwaysOnTop: !isDevelopment,
+    resizable: isDevelopment,
     webPreferences: {
       // Warning: Enable nodeIntegration and disable contextIsolation is not secure in production
       // Consider using contextBridge.exposeInMainWorld
