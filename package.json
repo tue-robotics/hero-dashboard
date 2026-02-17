@@ -79,7 +79,7 @@
     "electron-devtools-installer": "^4.0.0",
     "electron-icon-builder": "^2.0.1",
     "eslint": "^9.39.1",
-    "eslint-plugin-vue": "^10.7.0",
+    "eslint-plugin-vue": "^10.8.0",
     "globals": "^17.3.0",
     "jiti": "^2.6.1",
     "prettier": "^3.6.2",
