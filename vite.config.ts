@@ -65,7 +65,7 @@ export default defineConfig(({ command, mode }) => {
               sourcemap,
               minify: isBuild,
               outDir: electronOutDir,
-              rollupOptions: {
+              rolldownOptions: {
                 external: ["electron"],
                 //external: Object.keys('dependencies' in pkg ? pkg.dependencies : {}),
               },
@@ -84,7 +84,7 @@ export default defineConfig(({ command, mode }) => {
               sourcemap: sourcemap ? "inline" : undefined, // #332
               minify: isBuild,
               outDir: electronOutDir,
-              rollupOptions: {
+              rolldownOptions: {
                 external: ["electron"],
                 // external: Object.keys('dependencies' in pkg ? pkg.dependencies : {}),
               },
