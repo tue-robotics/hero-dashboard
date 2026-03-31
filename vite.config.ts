@@ -6,7 +6,6 @@ import { rmSync } from "node:fs";
 import path from "node:path";
 
 import { default as electron } from "vite-plugin-electron";
-import { default as renderer } from "vite-plugin-electron-renderer";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
@@ -93,8 +92,6 @@ export default defineConfig(({ command, mode }) => {
           },
         },
       ]),
-      // Use Node.js API in the Renderer-process
-      renderer(),
     ],
     clearScreen: true,
   };
