@@ -81,7 +81,7 @@
     "eslint": "^10.3.0",
     "eslint-plugin-vue": "^10.8.0",
     "globals": "^17.6.0",
-    "jiti": "^2.6.1",
+    "jiti": "^2.7.0",
     "prettier": "^3.6.2",
     "rimraf": "^6.1.0",
     "sass-embedded": "^1.99.0",
