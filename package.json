@@ -84,7 +84,7 @@
     "jiti": "^2.7.0",
     "prettier": "^3.6.2",
     "rimraf": "^6.1.0",
-    "sass-embedded": "^1.99.0",
+    "sass-embedded": "^1.100.0",
     "typescript": "^6.0.2",
     "typescript-eslint": "^8.59.0",
     "vite": "^7.3.2",
