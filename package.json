@@ -49,7 +49,7 @@
     "generate-icons": "electron-icon-builder --input=./public/icon.png --output=build --flatten",
     "preview": "vite preview",
     "test": "playwright test",
-    "postinstall": "electron-builder install-app-deps",
+    "postinstall": "install-electron && electron-builder install-app-deps",
     "postuninstall": "electron-builder install-app-deps",
     "clean": "rimraf -rf build dist node_modules",
     "version": "npm run build",
