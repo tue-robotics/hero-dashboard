@@ -80,7 +80,7 @@
     "electron-icon-builder": "^2.0.1",
     "eslint": "^10.5.0",
     "eslint-plugin-vue": "^10.8.0",
-    "globals": "^17.6.0",
+    "globals": "^17.7.0",
     "jiti": "^2.7.0",
     "prettier": "^3.6.2",
     "rimraf": "^6.1.0",
